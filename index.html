@@ -3,62 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cavel SMP - Official Web Client</title>
+    <title>Cavel SMP - Client Portal</title>
     <style>
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            overflow: hidden; background-color: #000; font-family: sans-serif;
+            overflow: hidden; background-color: #111; font-family: sans-serif;
+            display: flex; align-items: center; justify-content: center; color: #fff;
         }
-        iframe {
-            width: 100%; height: 100%; border: none;
+        .card {
+            text-align: center; background: #222; padding: 40px; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 2px solid #333; max-width: 400px;
         }
-        #setup-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(20, 20, 20, 0.95); color: #fff;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; z-index: 9999; text-align: center;
-        }
+        h1 { color: #5b8731; margin-bottom: 10px; font-size: 26px; letter-spacing: 1px; }
+        p { color: #aaa; font-size: 14px; line-height: 1.6; margin-bottom: 25px; }
         .btn {
-            background: #5b8731; color: white; border: none; padding: 15px 30px;
-            font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 4px;
-            margin-top: 20px; box-shadow: 0 4px #3b5c1d;
+            background: #5b8731; color: white; border: none; padding: 16px 32px;
+            font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 6px;
+            box-shadow: 0 4px #3b5c1d; width: 100%; text-transform: uppercase;
         }
-        .btn:active {
-            transform: translateY(4px); box-shadow: none;
-        }
-        h1 { margin-bottom: 5px; color: #fdb813; }
-        p { color: #aaa; max-width: 400px; line-height: 1.5; }
+        .btn:hover { background: #6ca13b; }
+        .btn:active { transform: translateY(4px); box-shadow: none; }
     </style>
 </head>
 <body>
 
-    <div id="setup-overlay">
-        <h1>⛰️ Cavel SMP Launcher ⛰️</h1>
-        <p>This customized client connects directly to <b>cavelsmp.play.hosting</b> via the Wisp Network relay configuration.</p>
-        <button class="btn" onclick="launchGame()">LAUNCH PLAY.HOSTING CONNECT</button>
+    <div class="card">
+        <h1>⛰️ Cavel SMP ⛰️</h1>
+        <p>Click below to launch the unblocked direct player client configuration for your web browser.</p>
+        
+        <!-- Direct clean URL redirect without using any broken or messy code script variables -->
+        <button class="btn" onclick="window.open('https://eaglercraft.com', '_blank')">
+            Launch Game Client
+        </button>
     </div>
 
-    <!-- This loads a modern WebAssembly Eaglercraft hub embedded with your custom crossplay server target -->
-    <iframe id="game-frame" src=""></iframe>
+</body>
+</html>
 
-    <script>
-        function launchGame() {
-            // Target elements
-            const overlay = document.getElementById('setup-overlay');
-            const frame = document.getElementById('game-frame');
-            
-            // Build the URL parameter payload pointing to your exact play.hosting network allocation
-            const serverName = encodeURIComponent("Cavel SMP");
-            const serverAddr = "ws://62.141.62.28:9132"; 
-            const relayUrl = "wss://wisp.webmc.fun";
-            
-            // Generate the auto-inject link using an active, unblocked WASM network instance
-            const launchUrl = `https://eaglercraft.com{serverAddr}&name=${serverName}&relay=${relayUrl}`;
-            
-            // Hide the instructions, load the game loop frame
-            overlay.style.display = 'none';
-            frame.src = launchUrl;
-        }
-    </script>
 </body>
 </html>
