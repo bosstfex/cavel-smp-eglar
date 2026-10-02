@@ -50,17 +50,17 @@
 <body>
 
     <div id="app-container">
-        <!-- Elegant animated splash loading system while the WASM framework boots -->
+        <!-- Animated loading layout screen -->
         <div id="loading-screen">
             <div class="spinner"></div>
             <h1>⛰️ Cavel SMP ⛰️</h1>
             <p>Initializing Modern Network Protocols...</p>
         </div>
 
-        <!-- Fully unblocked WebAssembly runtime rendering engine optimized for version 26.2/1.21+ pipelines -->
+        <!-- Replaced the dead Vercel site with an active community modern client embed -->
         <iframe 
             id="game-engine"
-            src="https://vercel.app" 
+            src="https://github.io" 
             allow="autoplay; gamepad; fullscreen; keyboard"
             onload="hideLoading()">
         </iframe>
@@ -69,7 +69,6 @@
     <script>
         function hideLoading() {
             const loader = document.getElementById('loading-screen');
-            // Give the browser half a second to settle the graphic buffer before hiding the splash screen
             setTimeout(() => {
                 loader.style.opacity = '0';
                 setTimeout(() => {
@@ -81,4 +80,3 @@
 
 </body>
 </html>
-
